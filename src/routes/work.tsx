@@ -22,6 +22,8 @@ type Project = {
   tags: string[];
   swatch: [string, string];
   doodle: "petals" | "leaves" | "stars" | "waves";
+  image: string;
+  href?: string;
 };
 
 const projects: Project[] = [
@@ -31,20 +33,27 @@ const projects: Project[] = [
     tags: ["Diseño", "Next.js", "Tailwind"],
     swatch: ["var(--sakura)", "var(--butter)"],
     doodle: "petals",
+    image: "/images/project-one.jpg",
+
   },
   {
     title: "Proyecto dos",
     tagline: "Aplicación mobile para mood tracking. Próximamente.",
     tags: ["React", "TypeScript", "Design System"],
     swatch: ["var(--lilac)", "var(--blush)"],
-    doodle: "stars",
+    doodle: "stars", 
+    image: "/images/project-two.jpg",
+
   },
   {
-    title: "Proyecto tres",
-    tagline: "Sitio personal con animaciones al scroll. Próximamente.",
-    tags: ["Astro", "Framer Motion", "MDX"],
+    title: "Portfolio",
+    tagline: "Sitio personal con animaciones al scroll.",
+    tags: ["React", "Framer Motion", "Typescript"],
     swatch: ["var(--sage)", "var(--butter)"],
     doodle: "leaves",
+    image: "/work/proyecto1.png",
+    href: "https://ignacio-echazu.netlify.app/",
+    
   },
   {
     title: "Proyecto cuatro",
@@ -52,6 +61,8 @@ const projects: Project[] = [
     tags: ["React", "Supabase", "SVG"],
     swatch: ["var(--lilac)", "var(--sage)"],
     doodle: "waves",
+    image: "/images/project-four.jpg",
+
   },
 ];
 
@@ -61,9 +72,6 @@ function WorkPage() {
       <Reveal>
         <p className="font-hand text-2xl text-ink/70">capítulo cuatro</p>
         <h1 className="mt-1 font-display text-5xl sm:text-6xl">Trabajo</h1>
-        <p className="mt-4 max-w-2xl text-ink/70">
-          Estos espacios están reservados para mostrar proyectos reales. Pronto van a vivir acá ✿
-        </p>
       </Reveal>
 
       <div className="mt-14 grid gap-8 sm:grid-cols-2">
@@ -78,17 +86,29 @@ function WorkPage() {
                   className="relative mb-5 grid aspect-[16/10] place-items-center overflow-hidden rounded-2xl"
                   style={{ background: `linear-gradient(135deg, ${p.swatch[0]}, ${p.swatch[1]})` }}
                 >
-                  <Doodle kind={p.doodle} />
-                  <span className="absolute bottom-3 left-3 rounded-full bg-cream/80 px-3 py-1 text-xs font-medium text-ink/70 backdrop-blur">
-                    Próximamente
-                  </span>
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="h-full w-full object-cover"
+                    />
                 </div>
 
                 <div className="flex items-start justify-between gap-3">
                   <h2 className="font-display text-2xl">{p.title}</h2>
-                  <span className="grid h-9 w-9 place-items-center rounded-full bg-blush text-ink transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
+                    {p.href ? (
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="grid h-9 w-9 place-items-center rounded-full bg-blush text-ink transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 hover:scale-105"
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    ) : (
+                      <span className="grid h-9 w-9 place-items-center rounded-full bg-blush/50 text-ink/40 cursor-not-allowed">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    )}
                 </div>
                 <p className="mt-2 text-sm text-ink/75">{p.tagline}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">

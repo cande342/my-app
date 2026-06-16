@@ -38,10 +38,7 @@ function Home() {
 
           <Reveal delay={0.2}>
             <p className="mt-5 max-w-xl text-balance text-base text-ink/75 sm:text-lg">
-              Fullstack Developer con foco en frontend y experiencia de usuario. 
-              Diseño y desarrollo interfaces modernas, optimizo sitios web y creo experiencias digitales intuitivas. 
-              También cuento con conocimientos en backend y bases de datos que me permiten participar en 
-              el desarrollo completo de una aplicación.
+              Fullstack Developer con especialización en frontend. Desarrollo interfaces modernas, accesibles y centradas en la experiencia del usuario, con conocimientos en backend y bases de datos para participar en todo el ciclo de desarrollo de aplicaciones.
             </p>
           </Reveal>
 

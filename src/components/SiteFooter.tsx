@@ -31,7 +31,7 @@ export function SiteFooter() {
             <Linkedin className="h-4 w-4" />
           </a>
           <a
-            href="mailto:hola@candelagomez.dev"
+            href="mailto:gcandela894@gmail.com"
             className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card transition-transform hover:-translate-y-0.5"
             aria-label="Email"
           >
